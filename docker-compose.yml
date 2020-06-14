@@ -1,8 +1,9 @@
 version: '3'
 
 services:
-  wireshark:
+  kali:
     image: kalilinux/kali:latest
+    tty: true
 
   nginx:
     image: nginx:alpine
