@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  wireshark:
+    image: kalilinux/kali:latest
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/usr/share/nginx/html
