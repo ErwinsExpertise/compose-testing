@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  kali:
+    image: kalilinux/kali:latest
+    tty: true
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/usr/share/nginx/html
