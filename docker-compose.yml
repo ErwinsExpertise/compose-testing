@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   nmap:
-    image: networkstatic/nmap
+    image: utsa4953/nmap
     container_name: nmap
     networks:
       - sniff    
