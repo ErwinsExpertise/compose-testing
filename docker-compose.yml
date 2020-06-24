@@ -4,11 +4,12 @@ services:
   wireshark:
     image: linuxserver/wireshark
     container_name: wireshark
+    networks:
+      - sniff
     ports:
       - 3000:3000
     cap_add:
       - NET_ADMIN
-    network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
@@ -18,12 +19,18 @@ services:
   nmap:
     image: networkstatic/nmap
     container_name: nmap
+    networks:
+      - sniff    
     tty: true
 
   apache:
     image: utsa4953/apache-app
     container_name: apache
+    networks:
+      - sniff
     ports:
       - 80:80
 
-  
+networks:
+  sniff:
+    driver: bridge
