@@ -7,3 +7,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y nmap
 # Install ARP
 RUN apt-get install -y arp-scan
+# Install cURL
+RUN apt-get install -y curl
+# Install Ping
+RUN apt-get install -y iputils-ping

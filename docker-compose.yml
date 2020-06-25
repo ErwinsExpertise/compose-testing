@@ -2,12 +2,10 @@ version: '3'
 
 services:
   wireshark:
-    image: linuxserver/wireshark
+    image: utsa4953/wireshark
     container_name: wireshark
-    networks:
-      - sniff
-    ports:
-      - 3000:3000
+    privileged: true
+    network_mode: "service:apache"
     cap_add:
       - NET_ADMIN
     environment:
@@ -19,18 +17,11 @@ services:
   nmap:
     image: utsa4953/nmap
     container_name: nmap
-    networks:
-      - sniff    
     tty: true
 
   apache:
     image: utsa4953/apache-app
     container_name: apache
-    networks:
-      - sniff
     ports:
       - 80:80
-
-networks:
-  sniff:
-    driver: bridge
+      - 3000:3000
